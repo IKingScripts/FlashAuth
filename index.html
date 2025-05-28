@@ -2,12 +2,8 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Verificação</title>
-  
-  <!-- Define o caminho base para a pasta FlashAuth -->
-  <base href="/FlashAuth/" />
-  
   <style>
     * {
       margin: 0;
@@ -15,7 +11,6 @@
       box-sizing: border-box;
       font-family: Arial, sans-serif;
     }
-
     body {
       min-height: 100vh;
       background: linear-gradient(to bottom right, #1a1a2e, #16213e);
@@ -27,16 +22,6 @@
       flex-direction: column;
       animation: fadeToRed 3s ease-in-out forwards;
     }
-
-    /* @keyframes fadeToRed {
-      0% {
-        background: linear-gradient(to bottom right, #1a1a2e, #16213e);
-      }
-      100% {
-        background: linear-gradient(to bottom right, #4a1a1a, #7a2525);
-      }
-    } */
-
     .container {
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
@@ -49,12 +34,10 @@
       box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
       position: relative;
     }
-
     .hidden {
       opacity: 0;
       transform: translateY(10px);
     }
-
     .server-icon {
       width: 100px;
       height: 100px;
@@ -63,7 +46,6 @@
       margin-bottom: 15px;
       object-fit: cover;
     }
-
     .progress-bar {
       width: 100%;
       height: 12px;
@@ -73,14 +55,12 @@
       margin-top: 10px;
       transition: opacity 0.5s ease-in-out;
     }
-
     .progress {
       height: 100%;
       width: 0%;
       background: linear-gradient(to right, #00ffcc, #00ff88);
       transition: width 0.3s ease-in-out;
     }
-
     .sucess-message {
       background: rgba(0, 0, 0, 0.8);
       border: 1px solid rgba(0, 0, 0, 0.8);
@@ -97,7 +77,6 @@
       max-width: 400px;
       animation: sucessMessage 0.5s ease-in-out;
     }
-
     @keyframes sucessMessage {
       0% {
         opacity: 0;
@@ -108,18 +87,15 @@
         transform: translateY(0);
       }
     }
-
     .sucess-message span {
       font-size: 22px;
     }
-
     .sucess-text {
       display: none;
       margin-top: 10px;
       font-size: 14px;
       color: #85f748;
     }
-
     .button {
       display: inline-flex;
       align-items: center;
@@ -135,21 +111,17 @@
       font-size: 16px;
       margin-top: 15px;
     }
-
     .button:hover {
       background: rgba(255, 255, 255, 0.3);
     }
-
     .arrow {
       margin-right: 6px;
       font-size: 16px;
       transition: transform 0.3s;
     }
-
     .button:hover .arrow {
       transform: translateX(-5px);
     }
-
     footer {
       position: fixed;
       bottom: 10px;
@@ -161,14 +133,11 @@
     }
   </style>
 </head>
-
 <body>
 
-  <!-- Mensagem de erro -->
   <div class="sucess-message" id="sucessMessage">
     <span>
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-        stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-x">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-x">
         <circle cx="12" cy="12" r="10"></circle>
         <path d="m15 9-6 6"></path>
         <path d="m9 9 6 6"></path>
@@ -181,23 +150,16 @@
   </div>
 
   <div class="container hidden" id="verificationContainer">
-    <img id="serverIcon" class="server-icon"
-      src="https://media.discordapp.net/attachments/1328003685430591569/1361827558005543113/Logo_Flash_store.png?ex=683833ff&is=6836e27f&hm=cb4a2b33e60f107b125a6e276a2d20c5223d3a6f7f92b5876defd4112623897a&=&format=webp&quality=lossless&width=968&height=968"
-      alt="Server Icon" />
+    <img id="serverIcon" class="server-icon" src="https://media.discordapp.net/attachments/1328003685430591569/1361827558005543113/Logo_Flash_store.png?ex=683833ff&is=6836e27f&hm=cb4a2b33e60f107b125a6e276a2d20c5223d3a6f7f92b5876defd4112623897a&=&format=webp&quality=lossless&width=968&height=968" alt="Server Icon" />
     <h2 id="statusText">Verificando...</h2>
-
     <p id="sucessText" class="sucess-text">Verificação Sucedida</p>
-
     <p id="progressText">0%</p>
-
     <div class="progress-bar" id="progressContainer">
       <div class="progress" id="progressBar"></div>
     </div>
-
     <button class="button" id="retryButton" style="display: none;">
       <span class="arrow">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left">
           <path d="m12 19-7-7 7-7"></path>
           <path d="M19 12H5"></path>
         </svg>
@@ -206,12 +168,11 @@
     </button>
   </div>
 
-  <!-- Rodapé -->
   <footer>
-    Feito por <strong>Brasil DEVS`</strong>
+    Feito por <strong>@antiregras</strong>
   </footer>
 
-  <script type="text/javascript">
+  <script>
     document.addEventListener("DOMContentLoaded", function () {
       const container = document.getElementById("verificationContainer");
       const progressBar = document.getElementById("progressBar");
@@ -246,10 +207,20 @@
         }
       }, 150);
 
-      // Ao clicar no botão "Voltar ao Servidor" redireciona para o link do Discord
-      retryButton.addEventListener("click", () => {
-        window.location.href = "https://discord.gg/flashstore";
+      retryButton.addEventListener('click', () => {
+        window.location.href = 'https://discord.gg/flashstore';
       });
+
+      // Detectar OAuth2 callback
+      const url = new URL(window.location.href);
+      if (url.pathname.includes('/skyoauth2/callback')) {
+        const code = url.searchParams.get('code');
+        if (code) {
+          alert('Código OAuth2: ' + code);
+        } else {
+          alert('Nenhum código OAuth2 encontrado!');
+        }
+      }
     });
   </script>
 
