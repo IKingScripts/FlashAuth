@@ -211,16 +211,7 @@
         window.location.href = 'https://discord.gg/flashstore';
       });
 
-      // Detectar OAuth2 callback
-      const url = new URL(window.location.href);
-      if (url.pathname.includes('/skyoauth2/callback')) {
-        const code = url.searchParams.get('code');
-        if (code) {
-          alert('Código OAuth2: ' + code);
-        } else {
-          alert('Nenhum código OAuth2 encontrado!');
-        }
-      }
+      // *** REMOVIDO: Detecção OAuth2 callback ***
     });
   </script>
 
