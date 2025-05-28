@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<title>Callback OAuth2</title>
+</head>
+<body>
+<h1>Callback OAuth2 recebido</h1>
+<p>Código recebido:</p>
+<pre id="code"></pre>
+
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const code = urlParams.get('code');
+  document.getElementById('code').textContent = code || 'Nenhum código encontrado.';
+</script>
+</body>
+</html>
